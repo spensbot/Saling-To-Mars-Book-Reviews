@@ -1,0 +1,92 @@
+body{
+    margin: 0px;
+    font-family: 'Raleway', sans-serif;
+    color: rgb(10,15,20);
+    text-align: center;
+    padding-top: 170px;
+    background: rgb(250, 245, 240);
+    font-size: 1.2em;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto; /* Center the DIV horizontally */
+}
+
+/*Controls the style of the header bar*/
+.fixed-header{
+    width: 100%;
+    position: fixed;
+    padding: 0;
+    background: rgb(30,40,50);
+    top: 0;
+}
+.fixed-header h1{
+    font-family: 'Pacifico', cursive;
+    font-size:50px;
+    font-weight: normal;
+    color: rgb(212, 141, 93);
+}
+.fixed-status{
+    position: fixed;
+    width:20%;
+    top:20px;
+    right:0px;
+    text-align: right;
+}
+.fixed-nav{
+    width: 100%;
+    position: fixed;
+    padding: 10px 0;
+    background: rgb(30,40,50);
+    top: 65px;
+    color: rgb(212, 141, 93);
+}
+nav a{
+    font-size: 30px;
+    font-family: 'Amatic SC', cursive;
+    text-decoration: none;
+    padding: 8px 40px;
+    display: inline-block;
+    color: rgb(212, 141, 93);
+}
+nav a:hover{
+    color: rgb(255,235,215);
+}
+
+/*Controls the styles within the content*/
+.content{
+    padding: 50px;
+}
+.footer{
+    color: rgb(212, 141, 93);
+    padding: 20px;
+}
+.divider{
+    background: rgb(212, 141, 93);
+    height: 1px;
+    margin: 5% 15%;
+}
+.review{
+    background: rgba(0,0,0,.1);
+    margin: 3%;
+    padding: 3%;
+}
+.goodreads-info{
+    background: rgba(100,20,20,.5);
+    margin: 3% 30%;
+    padding: 2%;
+    color:whitesmoke;
+}
+
+/*Available Google Fonts
+font-family: 'Indie Flower', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Pacifico', cursive;
+font-family: 'Righteous', cursive;
+font-family: 'Amatic SC', cursive;
+font-family: 'Satisfy', cursive;
+font-family: 'Fredoka One', cursive;
+font-family: 'Poiret One', cursive;
+font-family: 'Raleway', sans-serif;
+*/

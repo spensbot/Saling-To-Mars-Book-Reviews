@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}Index{% endblock title %}
+
+{% block content %}
+    <form action="/search" method="GET">
+        <input type="text" name="query" placeholder="Enter an ISBN, title, or author">
+        <button>Search</button>
+    </form>
+
+    <div class="divider"></div>
+
+    {%if query != None %}
+        <h3>You searched for: {{query}}</h3>
+        <h1>Results:</h1>
+        {% if results == None %}
+            <h2>Couldn't find that one :/</h2>
+            <h3>Try modifying your search?</h3>
+        {% else %}
+            {% for result in results %}
+                <h3><a href="/book/{{result['isbn']}}">{{result["isbn"]}} | {{result["title"]}} | {{result["author"]}}</a></h3>
+            {% endfor %}
+        {% endif %}
+    {% else %}
+        <h1>Search Something Above!</h1>
+    {% endif %}
+
+{% endblock content %}

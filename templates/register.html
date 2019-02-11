@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}Register{% endblock title %}
+
+{% block content %}
+    <h1>Create an account on STM Book Reviews!</h1>
+    <form action="\register" method="POST">
+        <input type="text" name="username" placeholder="Username">
+        <input type="text" name="password" placeholder="Password">
+        <button>Register</button>
+    </form>
+{% endblock content %}

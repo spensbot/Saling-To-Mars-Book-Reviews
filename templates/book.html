@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %} {{bookData['isbn']}} {% endblock title %}
+
+{% block content %}
+    <h2> {{ bookData['title'] }} </h2>
+    <h4> A book by {{ bookData['author'] }}. </h4>
+    <h4> Published: {{ bookData['year'] }} </h4>
+    <p> ISBN: {{ bookData['isbn'] }} </p>
+
+    <div class = "goodreads-info">
+        <p>GoodReads Average Rating: {{ goodreadsData['average_rating'] }} </p>
+        <p>GoodReads Number of Ratings: {{ goodreadsData['work_ratings_count'] }} </p>
+    </div>
+
+    <div class="divider"></div>
+
+    {% if userReviewData == None %}
+        <h5> Enter A Review Below </h5>
+        <form action="/book/{{ bookData['isbn'] }}" method="POST">
+            <div class="form-group">
+                <label for="rating">Rating</label>
+                <select name="rating" class="form-control" id="rating">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="review">Review</label>
+                <textarea name="review" class="form-control" id="review" rows="5"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    {% else %}
+        <h4>You reviewed this book {{userReviewData['rating']}} out of 5</h4>
+        <h4>Your comments:</h4>
+        <p>{{ userReviewData['review'] }}</p>
+    {% endif %}
+
+    <div class = "divider"></div>
+
+    <h3> All Reviews:</h3>
+    {% if reviewData == None %}
+        <h4>There are currently no reviews for this book.</h4>
+    {% else %}
+        {% for review in reviewData %}
+            <div class = "review">
+                <h4>{{review['username']}} gave this book {{review['rating']}} out of 5.</h4>
+                <h4>Their Comments:</h4>
+                <p>{{review['review']}}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+{% endblock content %}

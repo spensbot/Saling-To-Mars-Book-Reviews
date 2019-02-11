@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}Index{% endblock title %}
+
+{% block content %}
+{% if userId == None %}
+    <h1>Welcome to STM Book Reviews!</h1>
+    <h3>A friendly place to find new books :)</h3>
+    <h2>We don't recognize you. <a href="/login">Login</a> or <a href="/register">Register</a></h2>
+{% else %}
+    <h1>Hello, {{username}}!</h1>
+    <h3>See your reviewed books below.</h3>
+
+    <div class="divider"></div>
+
+    {% if userReviews == None %}
+        <h4>You haven't reviewed any books!?</h4>
+        <h4>Search for a book and get to it!</h4>
+    {% else %}
+        {% for userReview in userReviews %}
+            <div class = "review">
+                    <h4>You gave "{{ userReview['title'] }}" {{ userReview['rating'] }} out of 5.</h4>
+                    <h4>Your Comments:</h4>
+                    <p>{{ userReview['review'] }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endif %}
+
+    <div class="divider"></div>
+    
+{% endblock content %}
